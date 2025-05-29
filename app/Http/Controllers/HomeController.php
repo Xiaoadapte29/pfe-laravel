@@ -9,25 +9,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-  public function index()
-  {
-$categories = ServiceCategory::with('services')->get();
-
-    // $professionals = User::where('role', 'professional')
-    //   ->where('is_verified', true)
-    //   ->take(6)
-    //   ->get();
-
-    // // Get latest 6 reviews with related client info
-    // $testimonials = Review::with(['booking' => function ($q) {
-    //   $q->select('id', 'client_id');
-    //   $q->with(['client:id,name']);
-    // }])->select('id', 'rating', 'comment', 'booking_id')
-    //   ->latest()
-    //   ->take(6)
-    //   ->get();
-
-
+ public function index()
+{
+    $categories = ServiceCategory::with(['services' => function ($query) {
+        $query->with('professional')->take(5); // charge 5 services avec leurs pros
+    }])->take(6)->get(); // charge 6 catégories max
+    //dd($categories);
     return view('home', compact('categories'));
-  }
+}
+
 }

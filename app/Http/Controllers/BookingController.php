@@ -19,39 +19,38 @@ class BookingController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+public function create(Request $request)
 {
-    $serviceId = $request->query('service');
-    $service = Service::find($serviceId);
-
+    $service = Service::findOrFail($request->service_id);
     return view('bookings.create', compact('service'));
 }
+
+
 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+public function store(Request $request)
 {
     $request->validate([
         'service_id' => 'required|exists:services,id',
         'scheduled_at' => 'required|date|after:now',
-        'notes' => 'nullable|string|max:1000',
+        'notes' => 'nullable|string',
     ]);
 
-    $service = Service::findOrFail($request->service_id);
-
     Booking::create([
+        'service_id' => $request->service_id,
         'client_id' => auth()->id(),
-        'service_id' => $service->id,
-        'scheduled_at' => $request->scheduled_at,
-        'scheduled_end_time' => now()->parse($request->scheduled_at)->addMinutes($service->duration),
         'status' => 'pending',
+        'scheduled_at' => $request->scheduled_at,
+        'scheduled_end_time' => now()->addMinutes(Service::find($request->service_id)->duration),
         'notes' => $request->notes,
     ]);
 
-    return redirect()->route('dashboard.client')->with('success', 'Votre demande a été envoyée avec succès.');
+    return redirect()->route('dashboard')->with('success', 'Booking created successfully!');
 }
+
 
     public function acceptRefuse($id, $action)
     {

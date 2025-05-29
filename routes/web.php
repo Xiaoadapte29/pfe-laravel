@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClientController;
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('users', UserController::class);
-    Route::resource('services', ServiceController::class);
     Route::resource('bookings', BookingController::class);
 
     Route::post('/bookings/{id}/accept', [BookingController::class, 'accept'])->name('bookings.accept');
@@ -41,26 +40,15 @@ Route::middleware('auth')->group(function () {
 Route::get('/register/client', fn () => view('auth.register-client'))->name('register.client');
 Route::post('/register/client', [RegisteredUserController::class, 'storeClient'])->name('register.client.submit');
 
-// ClientController 
-Route::controller(ClientController::class)->group(function () {
-    Route::get('/book', 'book')->name('book');
-    Route::get('/register-professional', 'registerProfessional')->name('register.professional');
-    Route::get('/testimonials', 'testimonials')->name('testimonials');
-    Route::get('/steps', 'steps')->name('steps');
-    
-    Route::get('/services/plumbing', 'plumbing')->name('services.plumbing');
-    Route::get('/services/electrical', 'electrical')->name('services.electrical');
-    Route::get('/services/painting', 'painting')->name('services.painting');
-    Route::get('/services/moving', 'moving')->name('services.moving');
-    Route::get('/services/carpentry', 'carpentry')->name('services.carpentry');
-    Route::get('/services/gardening', 'gardening')->name('services.gardening');
-    Route::get('/services/cleaning', 'cleaning')->name('services.cleaning');
-    Route::get('/services/security', 'security')->name('services.security');
 
-    Route::get('/services/{service}', 'viewService')->name('services.view');
-});
 
 // Professionals listing
 Route::resource('professionals', ProfessionalController::class)->only(['index']);
 
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::get('/contact', function () {
+    return view('contact.index');
+})->name('contact');
+
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 require __DIR__.'/auth.php';

@@ -1,46 +1,24 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container mt-4">
-    <h2>Réserver un service</h2>
-
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
+<div class="container mx-auto p-6">
+    <h2 class="text-2xl font-semibold mb-4">Book Service: {{ $service->name }}</h2>
     <form action="{{ route('bookings.store') }}" method="POST">
         @csrf
+        <input type="hidden" name="service_id" value="{{ $service->id }}">
 
-        {{-- If a service is already selected (from search) --}}
-        @if(isset($service))
-            <div class="mb-3">
-                <label for="service_id" class="form-label">Service sélectionné</label>
-                <input type="text" class="form-control" value="{{ $service->name }}" disabled>
-                <input type="hidden" name="service_id" value="{{ $service->id }}">
-            </div>
-        @else
-            <div class="mb-3">
-                <label for="service_id" class="form-label">Choisir un service</label>
-                <select name="service_id" id="service_id" class="form-select" required>
-                    <option value="">-- Sélectionner un service --</option>
-                    @foreach(App\Models\Service::where('is_available', true)->get() as $srv)
-                        <option value="{{ $srv->id }}">{{ $srv->name }} ({{ $srv->price }} MAD)</option>
-                    @endforeach
-                </select>
-            </div>
-        @endif
-
-        <div class="mb-3">
-            <label for="scheduled_at" class="form-label">Date et heure souhaitées</label>
-            <input type="datetime-local" name="scheduled_at" id="scheduled_at" class="form-control" required>
+        <div class="mb-4">
+            <label class="block mb-1 font-medium">Date & Time</label>
+            <input type="datetime-local" name="scheduled_at" required class="w-full border rounded p-2">
         </div>
 
-        <div class="mb-3">
-            <label for="notes" class="form-label">Notes supplémentaires (optionnel)</label>
-            <textarea name="notes" id="notes" rows="3" class="form-control"></textarea>
+        <div class="mb-4">
+            <label class="block mb-1 font-medium">Additional Notes</label>
+            <textarea name="notes" class="w-full border rounded p-2"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Confirmer la réservation</button>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Confirm Booking
+        </button>
     </form>
 </div>
 @endsection

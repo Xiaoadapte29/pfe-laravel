@@ -4,8 +4,8 @@
         <p class="mt-2 text-gray-600">Create an account to start booking services</p>
     </div>
 
-    <form class="space-y-6" method="POST" action="{{ route('register') }}">
-        @csrf
+    <form class="space-y-6" method="POST" action="<?php echo e(route('register')); ?>">
+        <?php echo csrf_field(); ?>
         <input type="hidden" name="type" value="client">
 
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -74,7 +74,7 @@
     <div class="mt-6 text-center">
         <p class="text-sm text-gray-600">
             Already have an account? 
-            <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Sign in</a>
+            <a href="<?php echo e(route('login')); ?>" class="font-medium text-indigo-600 hover:text-indigo-500">Sign in</a>
         </p>
     </div>
-</div>
+</div><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/auth/register-client.blade.php ENDPATH**/ ?>
