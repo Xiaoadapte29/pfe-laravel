@@ -9,20 +9,11 @@ class Professional extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'user_id',
-        'specialty',
-        'bio',
-        'years_experience',
-        'service_area',
-        'hourly_rate',
-        'rating',
-        'review_count',
-        'availability',
-        'certifications',
-        'insurance_provider',
-        'policy_number',
-        'profile_photo_path'
-    ];
+    'name', 'email', 'password', 'phone', 'cin', 'city', 'specialty',
+    'bio', 'years_experience', 'service_area', 'hourly_rate',
+    'rating', 'review_count', 'availability', 'certifications',
+    'insurance_provider', 'policy_number', 'profile_photo_path',
+];
 
     protected $casts = [
         'availability' => 'array',

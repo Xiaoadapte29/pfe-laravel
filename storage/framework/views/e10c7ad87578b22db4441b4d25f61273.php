@@ -153,11 +153,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="<?php echo e(route('bookings.create', ['service_id' => $service['id']])); ?>" 
+                                        <a href="<?php echo e(route('bookings.index', ['service_id' => $service['id']])); ?>" 
    class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
     Book
 </a>
-
                                     </div>
                                 </div>
                             </div>

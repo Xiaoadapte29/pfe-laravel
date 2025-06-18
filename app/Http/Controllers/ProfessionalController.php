@@ -25,7 +25,6 @@ class ProfessionalController extends Controller
 
         $professionals = $this->mockProfessionals();
 
-        // Filtering logic
         $filteredProfessionals = collect($professionals)
             ->when($request->specialty && $request->specialty !== 'all', function($collection) use ($request) {
                 return $collection->where('specialty', $request->specialty);
@@ -142,11 +141,27 @@ class ProfessionalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+   
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required',
+        'phone' => 'required',
+        'cin' => 'required',
+        'profile_photo' => 'required|image',
+        'email' => 'required|email|max:255|unique:users',
+        'city' => 'required',
+        'specialty' => 'required',
+        'password' => 'required|confirmed',
+    ]);
 
+    $professional = new \App\Models\Professional();
+    $professional->fill($validated);
+    $professional->password = bcrypt($request->password);
+    $professional->save();
+
+    return redirect()->route('professionals.dashboard');
+}
     /**
      * Display the specified resource.
      */

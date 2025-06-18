@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfessionalController;
+use App\Http\Controllers\ProfessionalDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServiceController;
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::view('/contact', 'contact')->name('contact');
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/search', [ServiceController::class, 'search'])->name('services.search');
@@ -26,12 +26,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('users', UserController::class);
-    Route::resource('bookings', BookingController::class);
+//   Route::get('/professionals/dashboard', [ProfessionalDashboardController::class, 'index'])
+//         ->name('professionals.dashboard');
+Route::get('/dashboard/professional', [ProfessionalDashboardController::class, 'index'])->name('professionals.dashboard');
 
-    Route::post('/bookings/{id}/accept', [BookingController::class, 'accept'])->name('bookings.accept');
-    Route::post('/bookings/{id}/refuse', [BookingController::class, 'refuse'])->name('bookings.refuse');
-    Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
-    Route::post('/bookings/{id}/complete', [BookingController::class, 'complete'])->name('bookings.complete');
+
+  Route::resource('bookings', BookingController::class);
+Route::post('/bookings/{id}/accept/{action}', [BookingController::class, 'acceptRefuse'])->name('bookings.acceptRefuse');
+Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+Route::post('/bookings/{id}/complete', [BookingController::class, 'complete'])->name('bookings.complete');
 
     Route::post('/reviews/{booking_id}', [ReviewController::class, 'store'])->name('reviews.store');
 });
@@ -43,7 +46,8 @@ Route::post('/register/client', [RegisteredUserController::class, 'storeClient']
 
 
 // Professionals listing
-Route::resource('professionals', ProfessionalController::class)->only(['index']);
+Route::resource('professionals', ProfessionalController::class);
+
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', function () {
@@ -52,3 +56,5 @@ Route::get('/contact', function () {
 
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 require __DIR__.'/auth.php';
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.submit');
