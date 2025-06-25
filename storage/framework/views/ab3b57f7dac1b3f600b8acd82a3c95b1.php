@@ -2,13 +2,13 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="container mx-auto px-4 py-12">
-        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Contact Us</h1>
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">Contactez-nous</h1>
         
         <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div>
-                <h2 class="text-2xl font-semibold mb-6">Get In Touch</h2>
+                <h2 class="text-2xl font-semibold mb-6">Entrer en contact</h2>
                 <p class="text-gray-600 mb-8">
-                    Have questions about our services or need assistance? Fill out the form below or reach out to us directly using our contact information.
+                    Vous avez des questions sur nos services ou besoin d’aide ? Remplissez le formulaire ci-dessous ou contactez-nous directement.
                 </p>
                 
                 <div class="space-y-6">
@@ -17,8 +17,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div>
-                            <h3 class="font-medium">Our Location</h3>
-                            <p class="text-gray-600">123 Street Name, City, Country</p>
+                            <h3 class="font-medium">Notre adresse</h3>
+                            <p class="text-gray-600">123 Rue Exemple, Ville, Maroc</p>
                         </div>
                     </div>
                     
@@ -27,8 +27,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         </div>
                         <div>
-                            <h3 class="font-medium">Phone Number</h3>
-                            <p class="text-gray-600">+1 (555) 123-4567</p>
+                            <h3 class="font-medium">Téléphone</h3>
+                            <p class="text-gray-600">+212 6 00 00 00 00</p>
                         </div>
                     </div>
                     
@@ -37,7 +37,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         </div>
                         <div>
-                            <h3 class="font-medium">Email Address</h3>
+                            <h3 class="font-medium">Adresse e-mail</h3>
                             <p class="text-gray-600">contact@fixhome.com</p>
                         </div>
                     </div>
@@ -47,9 +47,9 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <div>
-                            <h3 class="font-medium">Working Hours</h3>
-                            <p class="text-gray-600">Mon - Fri: 9AM - 6PM</p>
-                            <p class="text-gray-600">Sat: 10AM - 4PM</p>
+                            <h3 class="font-medium">Horaires</h3>
+                            <p class="text-gray-600">Lun - Ven : 9h00 - 18h00</p>
+                            <p class="text-gray-600">Samedi : 10h00 - 16h00</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <?php echo csrf_field(); ?>
                     
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Votre nom</label>
                         <input 
                             type="text"
                             id="name"
@@ -74,7 +74,7 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="John Doe"
+                            placeholder="Jean Dupont"
                             required
                         />
                         <?php $__errorArgs = ['name'];
@@ -90,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Adresse e-mail</label>
                         <input 
                             type="email"
                             id="email"
@@ -104,7 +104,7 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="john@example.com"
+                            placeholder="jean@example.com"
                             required
                         />
                         <?php $__errorArgs = ['email'];
@@ -120,7 +120,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     
                     <div>
-                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Sujet</label>
                         <input 
                             type="text"
                             id="subject"
@@ -134,7 +134,7 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="Inquiry about services"
+                            placeholder="Demande de service"
                             required
                         />
                         <?php $__errorArgs = ['subject'];
@@ -163,7 +163,7 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="Your message here..."
+                            placeholder="Votre message ici..."
                             required
                         ><?php echo e(old('message')); ?></textarea>
                         <?php $__errorArgs = ['message'];
@@ -179,7 +179,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     
                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
-                        Send Message
+                        Envoyer le message
                     </button>
                 </form>
             </div>
@@ -207,4 +207,5 @@ unset($__errorArgs, $__bag); ?>
         </script>
     <?php endif; ?>
 <?php $__env->stopPush(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/contact/index.blade.php ENDPATH**/ ?>

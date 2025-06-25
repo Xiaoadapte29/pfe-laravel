@@ -4,14 +4,14 @@
 <section class="bg-blue-600 text-white py-12">
     <div class="container mx-auto px-4">
         <div class="max-w-2xl mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Find Trusted Home Service Professionals</h1>
-            <p class="text-blue-100 mb-6">Connect with experienced professionals in your area</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Trouvez des Professionnels de Confiance pour vos Services à Domicile</h1>
+            <p class="text-blue-100 mb-6">Connectez-vous avec des professionnels expérimentés dans votre région</p>
             
             <form method="GET" action="<?php echo e(route('professionals.index')); ?>" class="relative">
                 <input
                     type="text"
                     name="search"
-                    placeholder="Search by name or specialty..."
+                    placeholder="Recherchez par nom ou spécialité..."
                     class="pl-10 bg-white text-gray-800 w-full rounded-lg p-3"
                     value="<?php echo e(request('search')); ?>"
                 >
@@ -36,14 +36,14 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <!-- Filters -->
+            <!-- Filtres -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <form method="GET" action="<?php echo e(route('professionals.index')); ?>">
-                    <h3 class="font-medium text-lg mb-4">Filters</h3>
+                    <h3 class="font-medium text-lg mb-4">Filtres</h3>
                     
-                    <!-- Rating -->
+                    <!-- Note -->
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Rating</h4>
+                        <h4 class="font-medium mb-2">Note</h4>
                         <?php $__currentLoopData = [4, 3, 2, 1]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rating): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex items-center mb-2">
                                 <input type="radio" name="rating" 
@@ -64,9 +64,9 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
 
-                    <!-- Location -->
+                    <!-- Localisation -->
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Location</h4>
+                        <h4 class="font-medium mb-2">Localisation</h4>
                         <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex items-center mb-2">
                                 <input type="radio" name="location" 
@@ -80,9 +80,9 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
 
-                    <!-- Availability -->
+                    <!-- Disponibilité -->
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Availability</h4>
+                        <h4 class="font-medium mb-2">Disponibilité</h4>
                         <?php $__currentLoopData = $days; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $day): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex items-center mb-2">
                                 <input type="checkbox" name="availability[]" 
@@ -97,28 +97,28 @@
                     </div>
 
                     <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                        Apply Filters
+                        Appliquer les filtres
                     </button>
                     <a href="<?php echo e(route('professionals.index')); ?>" class="block text-center mt-2 text-blue-600 hover:underline">
-                        Clear Filters
+                        Réinitialiser les filtres
                     </a>
                 </form>
             </div>
 
-            <!-- Professionals List -->
+            <!-- Liste des professionnels -->
             <div class="md:col-span-3">
                 <?php $__empty_1 = true; $__currentLoopData = $filteredProfessionals; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $professional): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow mb-6">
                         <div class="p-6">
                             <div class="flex flex-col md:flex-row md:items-center">
-                                <!-- Professional Image -->
+                                <!-- Image du professionnel -->
                                 <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
                                     <img src="<?php echo e($professional['image']); ?>" 
                                          alt="<?php echo e($professional['name']); ?>" 
                                          class="w-24 h-24 rounded-full object-cover">
                                 </div>
                                 
-                                <!-- Professional Info -->
+                                <!-- Infos professionnel -->
                                 <div class="flex-grow">
                                     <div class="flex justify-between items-start">
                                         <div>
@@ -130,7 +130,7 @@
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                             </svg>
                                             <span class="ml-1"><?php echo e($professional['rating']); ?></span>
-                                            <span class="text-gray-500 ml-1">(<?php echo e($professional['reviews']); ?> reviews)</span>
+                                            <span class="text-gray-500 ml-1">(<?php echo e($professional['reviews']); ?> avis)</span>
                                         </div>
                                     </div>
                                     
@@ -146,25 +146,25 @@
                                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                             </svg>
-                                            <span><?php echo e($professional['experience']); ?> experience</span>
+                                            <span><?php echo e($professional['experience']); ?> d'expérience</span>
                                         </div>
                                         <div class="flex items-center text-gray-600">
                                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                             </svg>
-                                            <span>Available: <?php echo e(implode(', ', $professional['availability'])); ?></span>
+                                            <span>Disponible : <?php echo e(implode(', ', $professional['availability'])); ?></span>
                                         </div>
                                     </div>
                                     
                                     <p class="mt-3 text-gray-600"><?php echo e($professional['description']); ?></p>
                                     
                                     <div class="mt-4 flex space-x-3">
-<a href="" 
-   class="inline-block mt-4 text-blue-600 hover:underline font-medium">
-    View Profile
-</a>
-                                       <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                                            Book Now
+                                        <a href="" 
+                                           class="inline-block mt-4 text-blue-600 hover:underline font-medium">
+                                            Voir le profil
+                                        </a>
+                                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                            Réserver
                                         </button>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <div class="bg-white rounded-lg shadow-sm p-6 text-center">
-                        <p class="text-gray-500">No professionals found matching your criteria.</p>
+                        <p class="text-gray-500">Aucun professionnel trouvé correspondant à vos critères.</p>
                     </div>
                 <?php endif; ?>
             </div>
@@ -181,4 +181,5 @@
     </div>
 </section>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/professionals/index.blade.php ENDPATH**/ ?>

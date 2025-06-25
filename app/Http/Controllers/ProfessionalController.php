@@ -9,18 +9,18 @@ use Illuminate\Http\Request;
 class ProfessionalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Affiche la liste des professionnels avec filtres.
      */
     public function index(Request $request)
     {
         $specialties = [
-            'all' => 'All Specialties',
-            'plumbing' => 'Plumbing',
-            'electrical' => 'Electrical',
-            'cleaning' => 'Cleaning',
-            'carpentry' => 'Carpentry',
-            'painting' => 'Painting',
-            'gardening' => 'Gardening'
+            'all' => 'Toutes les spécialités',
+            'plumbing' => 'Plomberie',
+            'electrical' => 'Électricité',
+            'cleaning' => 'Nettoyage',
+            'carpentry' => 'Menuiserie',
+            'painting' => 'Peinture',
+            'gardening' => 'Jardinage'
         ];
 
         $professionals = $this->mockProfessionals();
@@ -49,7 +49,7 @@ class ProfessionalController extends Controller
             ->values();
 
         $locations = collect($professionals)->pluck('city')->unique()->values();
-        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
         return view('professionals.index', compact(
             'filteredProfessionals', 
@@ -59,24 +59,28 @@ class ProfessionalController extends Controller
             'request'
         ));
     }
+
+    /**
+     * Données factices de professionnels (pour le Maroc).
+     */
     private function mockProfessionals()
     {
         return [
             [
                 'id' => 1,
-                'name' => 'Alex Johnson',
-                'specialty' => 'Plumbing',
+                'name' => 'Yassine El Amrani',
+                'specialty' => 'Plomberie',
                 'rating' => 4.9,
                 'reviews' => 127,
-                'city' => 'New York',
-                'experience' => '8 years',
-                'availability' => ['Monday', 'Tuesday', 'Thursday', 'Friday'],
+                'city' => 'Casablanca',
+                'experience' => '8 ans',
+                'availability' => ['Lundi', 'Mardi', 'Jeudi', 'Vendredi'],
                 'image' => 'https://randomuser.me/api/portraits/men/32.jpg',
-                'description' => 'Licensed plumber with 8 years of experience in residential and commercial plumbing.',
+                'description' => 'Plombier certifié avec 8 ans d\'expérience en plomberie résidentielle et commerciale.',
                 'services' => [
-                    ['name' => 'Pipe Repair', 'price' => 75],
-                    ['name' => 'Faucet Installation', 'price' => 120],
-                    ['name' => 'Drain Cleaning', 'price' => 90]
+                    ['name' => 'Réparation de tuyaux', 'price' => 300],
+                    ['name' => 'Installation de robinets', 'price' => 500],
+                    ['name' => 'Débouchage', 'price' => 400]
                 ],
                 'sample_photos' => [
                     'https://images.unsplash.com/photo-1600566752355-35792bedcfe3',
@@ -84,34 +88,34 @@ class ProfessionalController extends Controller
                 ],
                 'reviews_data' => [
                     [
-                        'user' => 'John D.',
+                        'user' => 'Karim B.',
                         'rating' => 5,
-                        'comment' => 'Fixed my leaky pipes quickly and professionally!',
-                        'date' => '2 weeks ago'
+                        'comment' => 'Service rapide et très professionnel.',
+                        'date' => 'Il y a 2 semaines'
                     ],
                     [
-                        'user' => 'Sarah M.',
+                        'user' => 'Fatima Z.',
                         'rating' => 4,
-                        'comment' => 'Great service but a bit pricey',
-                        'date' => '1 month ago'
+                        'comment' => 'Bon travail mais un peu cher.',
+                        'date' => 'Il y a 1 mois'
                     ]
                 ]
             ],
             [
                 'id' => 2,
-                'name' => 'Maria Garcia',
-                'specialty' => 'Electrical',
+                'name' => 'Sara Benjelloun',
+                'specialty' => 'Électricité',
                 'rating' => 4.8,
                 'reviews' => 94,
-                'city' => 'Chicago',
-                'experience' => '6 years',
-                'availability' => ['Monday', 'Wednesday', 'Saturday'],
+                'city' => 'Rabat',
+                'experience' => '6 ans',
+                'availability' => ['Lundi', 'Mercredi', 'Samedi'],
                 'image' => 'https://randomuser.me/api/portraits/women/44.jpg',
-                'description' => 'Certified electrician specializing in home electrical systems and repairs.',
+                'description' => 'Électricienne expérimentée spécialisée dans les installations domestiques.',
                 'services' => [
-                    ['name' => 'Outlet Installation', 'price' => 85],
-                    ['name' => 'Light Fixture Installation', 'price' => 75],
-                    ['name' => 'Circuit Breaker Repair', 'price' => 120]
+                    ['name' => 'Installation de prises', 'price' => 250],
+                    ['name' => 'Installation d\'éclairage', 'price' => 300],
+                    ['name' => 'Réparation de disjoncteur', 'price' => 400]
                 ],
                 'sample_photos' => [
                     'https://images.unsplash.com/photo-1581093450021-4a7360e9a6a1',
@@ -119,79 +123,59 @@ class ProfessionalController extends Controller
                 ],
                 'reviews_data' => [
                     [
-                        'user' => 'Mike T.',
+                        'user' => 'Omar T.',
                         'rating' => 5,
-                        'comment' => 'Fixed my wiring issues perfectly!',
-                        'date' => '3 weeks ago'
+                        'comment' => 'Très professionnelle et efficace.',
+                        'date' => 'Il y a 3 semaines'
                     ]
                 ]
-            ],
-            // Add more professionals as needed
+            ]
         ];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        // À implémenter
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-   
-public function store(Request $request)
-{
-    $validated = $request->validate([
-        'name' => 'required',
-        'phone' => 'required',
-        'cin' => 'required',
-        'profile_photo' => 'required|image',
-        'email' => 'required|email|max:255|unique:users',
-        'city' => 'required',
-        'specialty' => 'required',
-        'password' => 'required|confirmed',
-    ]);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'cin' => 'required',
+            'profile_photo' => 'required|image',
+            'email' => 'required|email|max:255|unique:users',
+            'city' => 'required',
+            'specialty' => 'required',
+            'password' => 'required|confirmed',
+        ]);
 
-    $professional = new \App\Models\Professional();
-    $professional->fill($validated);
-    $professional->password = bcrypt($request->password);
-    $professional->save();
+        $professional = new \App\Models\Professional();
+        $professional->fill($validated);
+        $professional->password = bcrypt($request->password);
+        $professional->save();
 
-    return redirect()->route('professionals.dashboard');
-}
-    /**
-     * Display the specified resource.
-     */
-public function show($id)
-{
-   
-}
+        return redirect()->route('professionals.dashboard');
+    }
 
+    public function show($id)
+    {
+        // À implémenter
+    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        // À implémenter
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        // À implémenter
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        // À implémenter
     }
 }

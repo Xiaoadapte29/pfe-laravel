@@ -1,15 +1,14 @@
-<!-- resources/views/components/how-it-works.blade.php -->
 <section class="py-16 bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-2xl mx-auto mb-12">
-      <h2 class="text-3xl font-bold mb-4">How FixHome Works</h2>
+      <h2 class="text-3xl font-bold mb-4">Comment fonctionne FixHome</h2>
       <p class="text-gray-600">
-        Getting help with your home service needs is simple, fast, and reliable
+        Obtenir de l’aide pour vos besoins à domicile est simple, rapide et fiable
       </p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Step 1: Search Services -->
+      <!-- Étape 1 : Rechercher -->
       <div class="flex flex-col items-center text-center p-6 relative">
         <div class="w-16 h-16 flex items-center justify-center bg-blue-50 rounded-full mb-4">
           <svg class="h-8 w-8 text-fixhome-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,13 +20,13 @@
           1
         </div>
         
-        <h3 class="text-xl font-medium mb-3">Search Services</h3>
-        <p class="text-gray-600">Browse our selection of home services and find what you need.</p>
+        <h3 class="text-xl font-medium mb-3">Recherchez un service</h3>
+        <p class="text-gray-600">Parcourez notre sélection de services à domicile et trouvez ce qu’il vous faut.</p>
         
         <div class="hidden lg:block absolute top-16 left-[calc(100%-1rem)] w-6 border-t-2 border-dashed border-fixhome-primary"></div>
       </div>
       
-      <!-- Step 2: Book Appointment -->
+      <!-- Étape 2 : Réserver -->
       <div class="flex flex-col items-center text-center p-6 relative">
         <div class="w-16 h-16 flex items-center justify-center bg-blue-50 rounded-full mb-4">
           <svg class="h-8 w-8 text-fixhome-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,13 +38,13 @@
           2
         </div>
         
-        <h3 class="text-xl font-medium mb-3">Book an Appointment</h3>
-        <p class="text-gray-600">Choose a convenient date and time that works for your schedule.</p>
+        <h3 class="text-xl font-medium mb-3">Réservez un rendez-vous</h3>
+        <p class="text-gray-600">Choisissez une date et une heure qui vous conviennent.</p>
         
         <div class="hidden lg:block absolute top-16 left-[calc(100%-1rem)] w-6 border-t-2 border-dashed border-fixhome-primary"></div>
       </div>
       
-      <!-- Step 3: Get Professional Help -->
+      <!-- Étape 3 : Obtenir de l’aide -->
       <div class="flex flex-col items-center text-center p-6 relative">
         <div class="w-16 h-16 flex items-center justify-center bg-blue-50 rounded-full mb-4">
           <svg class="h-8 w-8 text-fixhome-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,13 +56,13 @@
           3
         </div>
         
-        <h3 class="text-xl font-medium mb-3">Get Professional Help</h3>
-        <p class="text-gray-600">Our verified professional will arrive on time to provide the service.</p>
+        <h3 class="text-xl font-medium mb-3">Recevez l’aide d’un professionnel</h3>
+        <p class="text-gray-600">Un professionnel vérifié viendra chez vous à l’heure convenue.</p>
         
         <div class="hidden lg:block absolute top-16 left-[calc(100%-1rem)] w-6 border-t-2 border-dashed border-fixhome-primary"></div>
       </div>
       
-      <!-- Step 4: Leave a Review -->
+      <!-- Étape 4 : Avis -->
       <div class="flex flex-col items-center text-center p-6 relative">
         <div class="w-16 h-16 flex items-center justify-center bg-blue-50 rounded-full mb-4">
           <svg class="h-8 w-8 text-fixhome-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,9 +74,10 @@
           4
         </div>
         
-        <h3 class="text-xl font-medium mb-3">Leave a Review</h3>
-        <p class="text-gray-600">Share your experience and help others find great service providers.</p>
+        <h3 class="text-xl font-medium mb-3">Laissez un avis</h3>
+        <p class="text-gray-600">Partagez votre expérience et aidez d’autres clients à choisir.</p>
       </div>
     </div>
   </div>
-</section><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/components/how-it-works.blade.php ENDPATH**/ ?>
+</section>
+<?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/components/how-it-works.blade.php ENDPATH**/ ?>

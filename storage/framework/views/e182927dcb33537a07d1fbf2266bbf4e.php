@@ -1,7 +1,7 @@
 <section class="bg-blue-600 py-12 text-white text-center">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-2">Client Testimonials</h2>
-        <p class="mb-10">See what our satisfied clients have to say about our services</p>
+        <h2 class="text-3xl font-bold mb-2">Témoignages Clients</h2>
+        <p class="mb-10">Découvrez ce que nos clients satisfaits disent de nos services</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
@@ -9,7 +9,7 @@
                     <img src="https://i.pravatar.cc/40?img=1" alt="Jennifer" class="w-10 h-10 rounded-full mr-3">
                     <div>
                         <p class="font-bold">Jennifer K.</p>
-                        <p class="text-sm text-gray-600">Plumbing Service</p>
+                        <p class="text-sm text-gray-600">Service de plomberie</p>
                     </div>
                     <div class="ml-auto text-yellow-400">
                         <?php for($i = 0; $i < 5; $i++): ?>
@@ -17,7 +17,7 @@
                         <?php endfor; ?>
                     </div>
                 </div>
-                <p>"The plumber was amazing! Fixed my kitchen sink in no time and explained what happened. Will definitely use FixHome again."</p>
+                <p>"Le plombier était incroyable ! Il a réparé mon évier de cuisine en un rien de temps et a expliqué ce qui s’est passé. Je referai appel à FixHome sans hésiter."</p>
             </div>
 
             <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
@@ -25,7 +25,7 @@
                     <img src="https://i.pravatar.cc/40?img=2" alt="Michael" class="w-10 h-10 rounded-full mr-3">
                     <div>
                         <p class="font-bold">Michael T.</p>
-                        <p class="text-sm text-gray-600">Electrical Installation</p>
+                        <p class="text-sm text-gray-600">Installation électrique</p>
                     </div>
                     <div class="ml-auto text-yellow-400">
                         <?php for($i = 0; $i < 4; $i++): ?>
@@ -33,7 +33,7 @@
                         <?php endfor; ?>
                     </div>
                 </div>
-                <p>"Very professional service. The electrician was punctual, knowledgeable, and fixed my outlet issues safely. Great experience!"</p>
+                <p>"Service très professionnel. L’électricien était ponctuel, compétent, et a réparé mes prises en toute sécurité. Excellente expérience !"</p>
             </div>
 
             <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
@@ -41,7 +41,7 @@
                     <img src="https://i.pravatar.cc/40?img=3" alt="Sophia" class="w-10 h-10 rounded-full mr-3">
                     <div>
                         <p class="font-bold">Sophia R.</p>
-                        <p class="text-sm text-gray-600">Home Cleaning</p>
+                        <p class="text-sm text-gray-600">Nettoyage à domicile</p>
                     </div>
                     <div class="ml-auto text-yellow-400">
                         <?php for($i = 0; $i < 5; $i++): ?>
@@ -49,7 +49,7 @@
                         <?php endfor; ?>
                     </div>
                 </div>
-                <p>"Exceptional cleaning service! My apartment hasn't been this clean in ages. The attention to detail was impressive. Highly recommend!"</p>
+                <p>"Service de nettoyage exceptionnel ! Mon appartement n’a jamais été aussi propre. L’attention aux détails était impressionnante. Je recommande vivement !"</p>
             </div>
         </div>
 

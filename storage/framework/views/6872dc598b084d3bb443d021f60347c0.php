@@ -1,14 +1,14 @@
 <footer class="bg-gray-900 text-white pt-16 pb-8">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Brand Section -->
+            <!-- Section Marque -->
             <div class="space-y-4">
                 <a href="<?php echo e(route('home')); ?>" class="flex items-center space-x-2">
                     <span class="text-2xl font-bold">Fix<span class="text-blue-400">Home</span></span>
                 </a>
                 <p class="text-gray-300 text-sm">
-                    Connecting you with the best home service professionals in your area.
-                    Quality work, guaranteed satisfaction.
+                    Nous vous mettons en relation avec les meilleurs professionnels des services à domicile dans votre région.
+                    Travail de qualité, satisfaction garantie.
                 </p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
@@ -22,10 +22,10 @@
                     </a>
                 </div>
             </div>
-            
-            <!-- Quick Links -->
+
+            <!-- Liens rapides -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <h3 class="text-lg font-semibold mb-4">Liens rapides</h3>
                 <ul class="space-y-2">
                     <li>
                         <a href="<?php echo e(route('services.index')); ?>" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
@@ -36,13 +36,13 @@
                     <li>
                         <a href="<?php echo e(route('professionals.index')); ?>" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Professionals</span>
+                            <span>Professionnels</span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo e(route('about.index')); ?>" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>About Us</span>
+                            <span>À propos</span>
                         </a>
                     </li>
                     <li>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <!-- Services -->
             <div>
                 <h3 class="text-lg font-semibold mb-4">Services</h3>
@@ -67,43 +67,43 @@
                     <li>
                         <a href="" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Plumbing</span>
+                            <span>Plomberie</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Electrical</span>
+                            <span>Électricité</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Cleaning</span>
+                            <span>Nettoyage</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Carpentry</span>
+                            <span>Menuiserie</span>
                         </a>
                     </li>
                     <li>
                         <a href="" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mr-2"><path d="m9 18 6-6-6-6"/></svg>
-                            <span>Painting</span>
+                            <span>Peinture</span>
                         </a>
                     </li>
                 </ul>
             </div>
-            
-            <!-- Contact Info -->
+
+            <!-- Informations de contact -->
             <div>
-                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                <h3 class="text-lg font-semibold mb-4">Contact</h3>
                 <ul class="space-y-3">
                     <li class="flex items-start">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-3 text-blue-400 flex-shrink-0 mt-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <span class="text-gray-300">123 Street Name, City, Country</span>
+                        <span class="text-gray-300">123 Nom de rue, Ville, Pays</span>
                     </li>
                     <li class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-3 text-blue-400 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -116,9 +116,10 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; <?php echo e(date('Y')); ?> FixHome. All rights reserved.</p>
+            <p>&copy; <?php echo e(date('Y')); ?> FixHome. Tous droits réservés.</p>
         </div>
     </div>
-</footer><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/components/footer.blade.php ENDPATH**/ ?>
+</footer>
+<?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/components/footer.blade.php ENDPATH**/ ?>

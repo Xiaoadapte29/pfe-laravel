@@ -6,21 +6,21 @@
 
         <nav class="hidden md:flex items-center space-x-8">
             <a href="{{ route('services.index') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">Services</a>
-            <a href="{{ url('/professionals') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">Professionals</a>
-            <a href="{{ url('/about') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">About</a>
+            <a href="{{ url('/professionals') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">Professionnels</a>
+            <a href="{{ url('/about') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">À propos</a>
             <a href="{{ url('/contact') }}" class="text-gray-700 hover:text-fixhome-primary transition-colors">Contact</a>
         </nav>
 
         <div class="hidden md:flex items-center space-x-4">
             <a href="{{ route('login') }}" class="btn btn-outline text-sm flex items-center space-x-1">
-                <i class="lucide lucide-log-in w-4 h-4"></i><span>Login</span>
+                <i class="lucide lucide-log-in w-4 h-4"></i><span>Connexion</span>
             </a>
             <a href="{{ route('register') }}" class="btn text-sm flex items-center space-x-1">
-                <i class="lucide lucide-user-circle w-4 h-4"></i><span>Register</span>
+                <i class="lucide lucide-user-circle w-4 h-4"></i><span>Inscription</span>
             </a>
         </div>
 
-        {{-- Mobile Menu Toggle --}}
+        {{-- Menu mobile (toggle) --}}
         <button id="mobile-menu-toggle" class="md:hidden text-gray-700">
             <i class="lucide lucide-menu w-6 h-6"></i>
         </button>
@@ -29,15 +29,15 @@
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t py-4 px-4">
         <nav class="flex flex-col space-y-4">
             <a href="{{ route('services.index') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">Services</a>
-            <a href="{{ url('/professionals') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">Professionals</a>
-            <a href="{{ url('/about') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">About</a>
+            <a href="{{ url('/professionals') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">Professionnels</a>
+            <a href="{{ url('/about') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">À propos</a>
             <a href="{{ url('/contact') }}" class="text-gray-700 hover:text-fixhome-primary px-4 py-2 hover:bg-gray-50 rounded-md">Contact</a>
             <div class="flex flex-col space-y-2 pt-4 border-t">
                 <a href="{{ route('login') }}" class="btn btn-outline flex justify-center items-center">
-                    <i class="lucide lucide-log-in w-4 h-4 mr-2"></i>Login
+                    <i class="lucide lucide-log-in w-4 h-4 mr-2"></i>Connexion
                 </a>
                 <a href="{{ route('register') }}" class="btn flex justify-center items-center">
-                    <i class="lucide lucide-user-circle w-4 h-4 mr-2"></i>Register
+                    <i class="lucide lucide-user-circle w-4 h-4 mr-2"></i>Inscription
                 </a>
             </div>
         </nav>

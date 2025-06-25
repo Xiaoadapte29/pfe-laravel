@@ -3,14 +3,15 @@
 <section class="bg-blue-600 text-white py-12">
     <div class="container mx-auto px-4">
         <div class="max-w-2xl mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Find the Perfect Service for Your Home</h1>
-            <p class="text-blue-100 mb-6">Browse through our selection of professional home services</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Trouvez le service parfait pour votre maison</h1>
+            <p class="text-blue-100 mb-6">Parcourez notre sélection de services professionnels à domicile</p>
             
-<form method="GET" action="<?php echo e(route('services.index')); ?>" class="relative">                <?php echo csrf_field(); ?>
+            <form method="GET" action="<?php echo e(route('services.index')); ?>" class="relative">
+                <?php echo csrf_field(); ?>
                 <input 
                     type="text" 
                     name="search"
-                    placeholder="Search for a service..." 
+                    placeholder="Rechercher un service..." 
                     class="pl-10 bg-white text-gray-800 w-full rounded-lg p-3"
                     value="<?php echo e(request('search')); ?>"
                 >
@@ -41,17 +42,17 @@
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
                 </svg>
-                Filters
+                Filtres
             </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <form method="GET" action="<?php echo e(route('services.index')); ?>">
-                    <h3 class="font-medium text-lg mb-4">Filters</h3>
+                    <h3 class="font-medium text-lg mb-4">Filtres</h3>
                     
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Price Range</h4>
+                        <h4 class="font-medium mb-2">Fourchette de prix</h4>
                         <div class="flex gap-4">
                             <input type="number" name="min_price" placeholder="Min" 
                                    class="w-full p-2 border rounded" 
@@ -63,7 +64,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Rating</h4>
+                        <h4 class="font-medium mb-2">Évaluation</h4>
                         <?php $__currentLoopData = [4, 3, 2, 1]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rating): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex items-center mb-2">
                                 <input type="checkbox" name="ratings[]" 
@@ -85,7 +86,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <h4 class="font-medium mb-2">Location</h4>
+                        <h4 class="font-medium mb-2">Localisation</h4>
                         <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="flex items-center mb-2">
                                 <input type="checkbox" name="cities[]" 
@@ -100,7 +101,7 @@
                     </div>
 
                     <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                        Apply Filters
+                        Appliquer les filtres
                     </button>
                 </form>
             </div>
@@ -113,7 +114,7 @@
                                 <div class="flex justify-between items-start">
                                     <h3 class="font-semibold text-lg mb-1"><?php echo e($service['name']); ?></h3>
                                     <?php if($service['isPopular']): ?>
-                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Popular</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Populaire</span>
                                     <?php endif; ?>
                                 </div>
 
@@ -154,16 +155,16 @@
                                             </div>
                                         </div>
                                         <a href="<?php echo e(route('bookings.index', ['service_id' => $service['id']])); ?>" 
-   class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-    Book
-</a>
+                                           class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                            Réserver
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <div class="col-span-full text-center py-12">
-                            <p class="text-gray-500">No services found matching your criteria.</p>
+                            <p class="text-gray-500">Aucun service ne correspond à vos critères.</p>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -172,4 +173,5 @@
     </div>
 </section>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\fixhome-laravel\resources\views/services/index.blade.php ENDPATH**/ ?>
