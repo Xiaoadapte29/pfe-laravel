@@ -32,9 +32,13 @@ Route::get('/dashboard/professional', [ProfessionalDashboardController::class, '
 
 
   Route::resource('bookings', BookingController::class);
-Route::post('/bookings/{id}/accept/{action}', [BookingController::class, 'acceptRefuse'])->name('bookings.acceptRefuse');
-Route::post('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
-Route::post('/bookings/{id}/complete', [BookingController::class, 'complete'])->name('bookings.complete');
+Route::post('/bookings/{booking}/{action}', [BookingController::class, 'acceptRefuse'])
+    ->name('bookings.acceptRefuse');
+
+Route::post('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+Route::post('/bookings/{booking}/complete', [BookingController::class, 'complete'])->name('bookings.complete');
+Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+
 
     Route::post('/reviews/{booking_id}', [ReviewController::class, 'store'])->name('reviews.store');
 });
@@ -43,16 +47,29 @@ Route::post('/bookings/{id}/complete', [BookingController::class, 'complete'])->
 Route::get('/register/client', fn () => view('auth.register-client'))->name('register.client');
 Route::post('/register/client', [RegisteredUserController::class, 'storeClient'])->name('register.client.submit');
 
+Route::redirect('/admin', '/admin/dashboard')->middleware(['auth', 'admin']);
 
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::post('professionals/{id}/verify', [DashboardController::class, 'verifyProfessional'])->name('professionals.verify');
+
+    Route::delete('professionals/{id}/reject', [DashboardController::class, 'rejectProfessional'])->name('professionals.reject');
+      Route::resource('users', UserController::class);
+    Route::resource('services', ServiceController::class);
+    
+});
 
 // Professionals listing
 Route::resource('professionals', ProfessionalController::class);
+Route::put('/professional/profile', [ProfessionalController::class, 'updateProfile'])->name('professionals.updateProfile');
 
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/contact', function () {
     return view('contact.index');
 })->name('contact');
+Route::post('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 require __DIR__.'/auth.php';

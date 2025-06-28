@@ -9,7 +9,10 @@ class Booking extends Model
 {
     use HasFactory;
     protected $fillable = ['status', 'scheduled_at', 'scheduled_end_time', 'notes', 'cancellation_reason', 'client_id', 'service_id'];
-
+ protected $casts = [
+        'scheduled_at' => 'datetime',
+        'scheduled_end_time' => 'datetime',
+    ];
     public function client() {
         return $this->belongsTo(User::class, 'client_id');
     }

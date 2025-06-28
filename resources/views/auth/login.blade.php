@@ -15,7 +15,9 @@
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form class="space-y-6" method="POST" action="{{ route('login') }}">
                 @csrf
-
+@if(request()->has('redirect'))
+        <input type="hidden" name="redirect" value="{{ request('redirect') }}">
+    @endif
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Adresse email</label>
                     <div class="mt-1">

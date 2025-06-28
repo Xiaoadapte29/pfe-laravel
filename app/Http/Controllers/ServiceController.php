@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -314,6 +315,27 @@ class ServiceController extends Controller
 
         return view('services.index', compact('filteredServices', 'cities', 'categories', 'request'));
     }
+public function create()
+{
+    $categories = ServiceCategory::all();
+    return view('services.create', compact('categories'));
+}
 
-    // Les autres méthodes create, store, show, edit, update, destroy et search restent identiques
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric',
+        'duration' => 'required|integer',
+        'category_id' => 'required|exists:service_categories,id',
+    ]);
+
+    $validated['professional_id'] = auth()->id(); // attach logged-in pro
+    $validated['is_available'] = true;
+
+    Service::create($validated);
+
+    return redirect()->route('dashboard.professional')->with('success', 'Service ajouté avec succès.');
+}
 }

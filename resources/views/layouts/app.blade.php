@@ -12,11 +12,13 @@
 
 <body class="font-sans antialiased">
     
+    
     <!-- Header -->
     @include('components.header')
 
     <!-- Main Content -->
     <main>
+        
         @yield('content')
     </main>
 

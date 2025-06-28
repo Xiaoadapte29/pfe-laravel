@@ -178,4 +178,5 @@ class ProfessionalController extends Controller
     {
         // À implémenter
     }
+    
 }

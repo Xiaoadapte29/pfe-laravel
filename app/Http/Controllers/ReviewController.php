@@ -46,7 +46,7 @@ class ReviewController extends Controller
             'booking_id' => $booking_id,
         ]);
 
-        return redirect()->route('dashboard.client')->with('success', 'Review submitted successfully!');
+        return redirect()->route('bookings.index')->with('success', 'Review submitted successfully!');
     }
 
     /**

@@ -12,11 +12,13 @@
 
 <body class="font-sans antialiased">
     
+    
     <!-- Header -->
     <?php echo $__env->make('components.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <!-- Main Content -->
     <main>
+        
         <?php echo $__env->yieldContent('content'); ?>
     </main>
 

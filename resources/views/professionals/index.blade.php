@@ -159,9 +159,7 @@
                                            class="inline-block mt-4 text-blue-600 hover:underline font-medium">
                                             Voir le profil
                                         </a>
-                                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                                            Réserver
-                                        </button>
+                                       
                                     </div>
                                 </div>
                             </div>

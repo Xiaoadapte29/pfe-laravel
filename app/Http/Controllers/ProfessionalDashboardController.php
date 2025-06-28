@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,56 +11,54 @@ class ProfessionalDashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-$professional = Auth::user();
-        
-        $professionalData = [
-            'name' => $professional->name,
-            'specialty' => 'Plumbing',
-            'rating' => 4.8,
-            'totalJobs' => 127,
-            'profileViews' => 1250,
-            'earnings' => 15420,
-            'status' => 'verified',
-            'profileCompletion' => 85
+ public function index()
+{
+    $professional = Auth::user();
+
+    // Get bookings related to this professional’s services
+    $bookings = Booking::whereHas('service', function ($query) use ($professional) {
+        $query->where('professional_id', $professional->id);
+    })->with('client', 'service')->get();
+
+    $bookingData = $bookings->map(function ($booking) {
+        return [
+            'id' => $booking->id,
+            'client' => $booking->client->name,
+            'service' => $booking->service->name,
+            'date' => $booking->scheduled_at->format('Y-m-d'),
+            'time' => $booking->scheduled_at->format('h:i A'),
+            'status' => $booking->status,
+            'price' => $booking->service->price,
         ];
+    });
 
-        $bookings = [
-            [
-                'id' => 1,
-                'client' => 'Sarah Johnson',
-                'service' => 'Kitchen Sink Repair',
-                'date' => '2024-01-15',
-                'time' => '10:00 AM',
-                'status' => 'confirmed',
-                'price' => 120
-            ],
-            [
-                'id' => 2,
-                'client' => 'Mike Wilson',
-                'service' => 'Bathroom Plumbing',
-                'date' => '2024-01-16',
-                'time' => '2:00 PM',
-                'status' => 'pending',
-                'price' => 250
-            ],
-            [
-                'id' => 3,
-                'client' => 'Emma Davis',
-                'service' => 'Pipe Installation',
-                'date' => '2024-01-17',
-                'time' => '9:00 AM',
-                'status' => 'completed',
-                'price' => 300
-            ]
-        ];
+    // Fetch reviews related to this professional's services via bookings
+    $reviews = \App\Models\Review::whereHas('booking.service', function ($query) use ($professional) {
+        $query->where('professional_id', $professional->id);
+    })->with('client')->get();
 
-        return view('professionals.dashboard', compact('professionalData', 'bookings'));
-    
-    
+    // Your professional data (replace with real data if available)
+    $professionalData = [
+        'name' => $professional->name,
+        'specialty' => $professional->specialty ?? 'N/A',
+        'rating' => 4.8,
+        'totalJobs' => 127,
+        'profileViews' => 1250,
+        'earnings' => 15420,
+        'status' => 'verified',
+        'profileCompletion' => 85,
+    ];
+$services = $professional->services ?? \App\Models\Service::where('professional_id', $professional->id)->get();
 
-    }
+   return view('professionals.dashboard', [
+    'professionalData' => $professionalData,
+    'bookings' => $bookingData,
+    'reviews' => $reviews,
+    'professional' => $professional, // To show profile info in form
+    'services' => $services           // To loop services in Pricing tab
+]);
+
+}
 
     /**
      * Show the form for creating a new resource.

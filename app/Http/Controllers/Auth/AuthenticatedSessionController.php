@@ -23,14 +23,34 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+   public function store(LoginRequest $request): \Illuminate\Http\RedirectResponse
+{
+    $request->authenticate();
+    $request->session()->regenerate();
 
-        $request->session()->regenerate();
-        
-        return redirect()->intended(RouteServiceProvider::HOME);
+    $user = Auth::user();
+
+    // Optional: block unverified users
+    // if (! $user->is_verified) {
+    //     Auth::logout();
+    //     return back()->withErrors(['email' => 'Votre compte n\'est pas encore vérifié.']);
+    // }
+
+    if ($user->role === 'client') {
+        return redirect()->route('home'); // goes to "/"
     }
+if ($user->role === 'admin') {
+    return redirect()->route('admin.dashboard');
+}
+
+    if ($user->role === 'professional') {
+        return redirect()->route('professionals.dashboard'); // goes to "/dashboard/professional"
+    }
+
+    // fallback (for admin or unknown role)
+    return redirect('/');
+}
+
 
     /**
      * Destroy an authenticated session.

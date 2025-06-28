@@ -13,7 +13,9 @@
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <form class="space-y-6" method="POST" action="<?php echo e(route('login')); ?>">
                 <?php echo csrf_field(); ?>
-
+<?php if(request()->has('redirect')): ?>
+        <input type="hidden" name="redirect" value="<?php echo e(request('redirect')); ?>">
+    <?php endif; ?>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Adresse email</label>
                     <div class="mt-1">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+       $users = \App\Models\User::paginate(15);       // <-- use paginate
+    $services = \App\Models\Service::paginate(15); // <-- use paginate
+
+    return view('admin.dashboard', compact('users', 'services'));
+    
     }
 
     /**
